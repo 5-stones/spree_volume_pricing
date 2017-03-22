@@ -11,15 +11,10 @@ Spree::LineItem.class_eval do
     old_copy_price.bind(self).call
     return unless variant
 
-    if variant
-      if changed? && changes.keys.include?('quantity')
-        vprice = variant.volume_price(quantity, order.user)
-        if price.present? && vprice <= variant.price
-          self.price = vprice and return
-        end
-      end
-
-      self.price = variant.price if price.nil?
+    # TODO this should move into update_price, but is only used after 3.1
+    vprice = variant.volume_price(quantity, order.user)
+    if price.present? && vprice <= variant.price
+      self.price = vprice and return
     end
 
     self.price = variant.price if price.nil?
