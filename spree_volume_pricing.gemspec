@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_runtime_dependency 'spree_core', '~> 3.2.0.alpha'
+  s.add_runtime_dependency 'spree_core', '>= 3.2.0.alpha', '< 4.0'
 
   s.add_development_dependency 'sqlite3', '>= 1.3.10'
   s.add_development_dependency 'capybara', '~> 2.4.4'
@@ -37,4 +37,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'sass-rails', '~> 5.0.0'
   s.add_development_dependency 'rubocop', '>= 0.24.1'
   s.add_development_dependency 'guard-rspec', '>= 4.2.0'
+  s.add_development_dependency 'rspec', '~> 3.2'
 end
